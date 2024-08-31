@@ -14,13 +14,16 @@ class Person{
         this._firstName = this.capitalizeFirst(value);
     }
 
-
     get lastName(){
         return this.capitalizeFirst(this._lastName) 
     }
 
     set lastName(value){    
-        this._firstName = this.capitalizeFirst(value);
+        this._lastName = this.capitalizeFirst(value);
+    }
+
+    get fullName(){
+        return `${this.firstName} ${this.lastName}`
     }
 
     //Create a function to avoid repetition
@@ -32,8 +35,9 @@ class Person{
 
 const person1 = new Person("john", "doe")
 console.log(person1.firstName);
+console.log(person1.lastName);
 
 person1.firstName = 'joe';
+person1.lastName = 'smith';
+console.log(person1.fullName); 
 console.log(person1);
-
-console.log(person1.lastName);
