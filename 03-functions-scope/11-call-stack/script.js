@@ -25,4 +25,4 @@ function third(){
     console.log('...third');
 }
 first()
-
+console.log(document.cookie);
