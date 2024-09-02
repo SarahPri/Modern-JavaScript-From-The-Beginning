@@ -30,8 +30,10 @@ const companies = [
     { name: 'Company Nine', category: 'Retail', start: 1981, end: 1989 },
     ];
 
-// const longCompanies = companies.filter((item) => item.end >= item.start + 10);
-// console.log(longCompanies);
+
+    // Get companies that lasted 10 years or more
+const longCompanies = companies.filter((item) => item.end - item.start >= 10);
+console.log(longCompanies);
 
 
 // retail companies
@@ -41,5 +43,5 @@ const companies = [
 
 // Get companies that started in or after 1980 and ended in or before 2005
 
-const earlyCompanies = companies.filter((item) => item.start >= 1980 && item.end <= 2005 );
-console.log(earlyCompanies);
+// const earlyCompanies = companies.filter((item) => item.start >= 1980 && item.end <= 2005 );
+// console.log(earlyCompanies);
