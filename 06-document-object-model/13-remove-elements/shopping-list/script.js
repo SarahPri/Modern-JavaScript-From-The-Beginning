@@ -14,10 +14,18 @@
 
 // ====================
 // remove child
-function removeFirstItem(){
+// function removeFirstItem(){
+//     const ul = document.querySelector('ul')
+//     const li = document.querySelector('li:nth-child(2)')
+
+//     ul.removeChild(li)
+// }
+
+
+function removeItem(itemNumber){
     const ul = document.querySelector('ul')
-    const li = document.querySelector('li:nth-child(2)')
+    const li = document.querySelector(`li:nth-child(${itemNumber})`)
 
     ul.removeChild(li)
 }
-removeFirstItem()
+removeItem(2);
