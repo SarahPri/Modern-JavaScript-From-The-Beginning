@@ -3,8 +3,10 @@ const div = document.querySelector('form div:nth-child(2)')
 const form = document.querySelector('form');
 
 
-button.addEventListener('click', () => {
+button.addEventListener('click', (e) => {
     alert('The button was clicked')
+
+    e.stopPropagation();
 })
 
 div.addEventListener('click', ()=>{
