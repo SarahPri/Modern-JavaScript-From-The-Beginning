@@ -1,3 +1,17 @@
+const logo = document.querySelector('img');
+
+// logo.addEventListener('click', function(e){
+//     console.log(e);
+// })
+
+function onClick(e){
+    console.log(e.target);
+    console.log(e.timeStamp);
+    console.log(e.timeStamp);
+}
+
+logo.addEventListener('click', onClick);
+
 /*
 - `target` - The element that triggered the event
 - `currentTarget` - The element that the event listener is attached to (These are the same in this case
