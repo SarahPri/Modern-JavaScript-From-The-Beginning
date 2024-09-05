@@ -19,16 +19,47 @@ function getData(endpoint) {
   });
 }
 
-getData('./movies.json')
-  .then((movies) => {
-    console.log(movies);
-    return getData('./actors.json');
-  })
-  .then((actors) => {
-    console.log(actors);
-    return getData('./directors.json');
-  })
-  .then((directors) => {
-    console.log(directors);
-  })
-  .catch((error) => console.log(error));
+// getData('./movies.json')
+//   .then((movies) => {
+//     console.log(movies);
+//     return getData('./actors.json');
+//   })
+//   .then((actors) => {
+//     console.log(actors);
+//     return getData('./directors.json');
+//   })
+//   .then((directors) => {
+//     console.log(directors);
+//   })
+//   .catch((error) => console.log(error));
+
+
+// using Async await
+
+// async function getAllData() {
+//   const movies = await getData('./movies.json');
+//   const actors = await getData('./actors.json');
+//   const directors = await getData('./directors.json');
+//   console.log(movies, actors, directors);
+  
+// }
+// getAllData()
+
+
+// Using Async & Await
+async function getAllDataWithFetch() {
+  const moviesResponse = await fetch('./movies.json');
+  const movies = await moviesResponse.json();
+
+  const actorsResponse = await fetch('./actors.json');
+  const actors = await actorsResponse.json();
+
+  const directorsResponse = await fetch('./directors.json');
+  const directors = await directorsResponse.json();
+
+  console.log(movies, actors, directors);
+  
+}
+
+getAllDataWithFetch();
+
