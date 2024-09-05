@@ -1,7 +1,10 @@
 function fetchUser(){
+
+  showSpinner(); //call spinner here
   fetch('https://randomuser.me/api')
   .then((res) => res.json())
   .then((data) => {
+    hideSpinner(); //hide spinner
     displayUser(data.results[0]);
   });
 
@@ -35,13 +38,21 @@ function fetchUser(){
                 <span class="font-bold">Phone: </span> ${user.phone}
               </p>
               <p class="text-xl">
-                <span class="font-bold">Location: </span> Boston MA
+                <span class="font-bold">Location: </span> ${user.location.city} ${user.location.country}
               </p>
-              <p class="text-xl"><span class="font-bold">Age: </span> 30</p>
+              <p class="text-xl"><span class="font-bold">Age: </span> ${user.dob.age}</p>
             </div>
           </div>
         </div>`
   
+  }
+
+  // show spinner
+  function showSpinner(){
+    document.querySelector('.spinner').style.display = 'block'
+  }
+  function hideSpinner(){
+    document.querySelector('.spinner').style.display = 'none'
   }
 document.querySelector('#generate').addEventListener('click', fetchUser)
 
