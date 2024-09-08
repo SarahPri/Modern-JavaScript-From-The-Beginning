@@ -21,7 +21,7 @@ const people = [
     gender: 'male',
     location: 'Chicago, IL',
     imageURL: 'https://randomuser.me/api/portraits/men/2.jpg',
-    looking: 'Male looking for male',
+    looking: 'Male looking for female',
   },
   {
     name: 'Shannon Jackson',
@@ -29,6 +29,37 @@ const people = [
     gender: 'female',
     location: 'Los Angeles, CA',
     imageURL: 'https://randomuser.me/api/portraits/women/2.jpg',
-    looking: 'Female looking for female',
+    looking: 'Female looking for male',
   },
 ];
+
+const container = document.querySelector('.container')
+const img = document.querySelector('img')
+const profileInfo = document.querySelector('.profile-info')
+const nextBtn = document.querySelector('#next')
+
+function* createPeopleIterator(){
+  let index = 0;
+
+  while(true){
+    yield people[index++ % people.length];
+  }
+}
+
+const iterator = createPeopleIterator();
+console.log(iterator.next());
+
+// for (person of createPeopleIterator(people)){
+  // console.log(person);
+// }
+function showNext(){
+  const person = iterator.next().value;
+  img.src = person.imageURL;
+  profileInfo.querySelector('h3').textContent = person.name;
+  profileInfo.querySelectorAll('p')[0].textContent = `${person.age} Years Old`;
+  profileInfo.querySelectorAll('p')[1].textContent = `From ${person.location}`;
+  profileInfo.querySelectorAll('p')[2].textContent = `${person.looking}`;
+}
+
+
+nextBtn.addEventListener('click', showNext)
