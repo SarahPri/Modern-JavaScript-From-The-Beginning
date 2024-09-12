@@ -23,9 +23,16 @@ function makeMoney(amount){
 
 
 }
-module.exports = {
+// module.exports = {
+//   capitalizeWords,
+//   makeMoney
+
+// }
+
+// export default capitalizeWords;
+export {
   capitalizeWords,
   makeMoney
 
+  
 }
-// module.exports = capitalizeWords;
